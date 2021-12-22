@@ -40,19 +40,11 @@ class ViewController: UIViewController {
 
 
     @IBAction func gameStartPressed(_ sender: Any) {
-        self.imageContainer.isHidden = false
+
         print("game start!")
         print(self.getRandom())
         
-        UIView.animate(withDuration: 3.0) {
-            self.firstImage.transform = CGAffineTransform(scaleX: 5, y: 5)
-            self.firstImage.transform = CGAffineTransform(scaleX: 1, y: 1)
-        } completion: { _ in
-            
-            self.imageContainer.isHidden = true
-            self.showAlert()
-        }
-        
+        self.showAlert()
         
     }
     
@@ -78,7 +70,9 @@ class ViewController: UIViewController {
             
             print("입력한 값은 \(input)입니다.")
             
+            self.imageShow()
             self.getWinner(count: value, select: "홀")
+
         }
         
         let evenBtn = UIAlertAction.init(title: "짝", style: .default) {_ in
@@ -94,13 +88,14 @@ class ViewController: UIViewController {
             
             print("입력한 값은 \(input)입니다.")
             
+            self.imageShow()
             self.getWinner(count: value, select: "짝")
         }
         
         // 입력창 추가
         // placeholder: 사용자가 입력하기 전에는 떠있고, 입력하고 나서는 사라지게 됨.
         alert.addTextField { textField in
-            textField.placeholder = "베팅할 구슬의 개수를 입력해주세요."
+            textField.placeholder = "Enter the number of beads to bet on"
         }
         
         alert.addAction(oddBtn)
@@ -149,13 +144,13 @@ class ViewController: UIViewController {
             self.userBallCount = self.userBallCount - count
             self.comBallCount = self.comBallCount + count
             if self.checkAccountEmpty(balls: self.comBallCount){
-                self.resultLbl.text = "computer win"
+                self.resultLbl.text = "finally computer win"
             }
         } else {
             self.userBallCount = self.userBallCount + count
             self.comBallCount = self.comBallCount - count
             if self.checkAccountEmpty(balls: self.userBallCount){
-                self.resultLbl.text = "user win"
+                self.resultLbl.text = "finally user win"
             }
         }
         
@@ -163,5 +158,23 @@ class ViewController: UIViewController {
         self.computerBallCountLbl.text = "\(self.comBallCount)"
     }
     
+    
+    // 홀짝 버튼 클릭 후 결과 보여주기 전에 이미지쇼추가
+    func imageShow() {
+        
+        self.imageContainer.isHidden = false
+        UIView.animate(withDuration: 3.0) {
+            
+            self.firstImage.transform = CGAffineTransform(scaleX: 5, y: 5)
+            self.firstImage.transform = CGAffineTransform(scaleX: 1, y: 1)
+      
+        } completion: { _ in
+            
+            self.imageContainer.isHidden = true
+            
+        }
+
+    }
 }
+
 
