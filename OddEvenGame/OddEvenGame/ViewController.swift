@@ -21,7 +21,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var computerBallCountLbl: UILabel!
     @IBOutlet weak var userBallCountLbl: UILabel!
     @IBOutlet weak var resultLbl: UILabel!
-    
+    @IBOutlet weak var imageContainer: UIView!
+    @IBOutlet weak var firstImage: UIImageView!
     
     
     
@@ -34,12 +35,28 @@ class ViewController: UIViewController {
         
         computerBallCountLbl.text = String(comBallCount)
         userBallCountLbl.text = String(userBallCount)
+        self.imageContainer.isHidden = true
     }
 
 
     @IBAction func gameStartPressed(_ sender: Any) {
+        self.imageContainer.isHidden = false
         print("game start!")
         print(self.getRandom())
+        
+        UIView.animate(withDuration: 3.0) {
+            self.firstImage.transform = CGAffineTransform(scaleX: 5, y: 5)
+            self.firstImage.transform = CGAffineTransform(scaleX: 1, y: 1)
+        } completion: { _ in
+            
+            self.imageContainer.isHidden = true
+            self.showAlert()
+        }
+        
+        
+    }
+    
+    func showAlert() {
         
         // 경고창
         let alert = UIAlertController(title: "GAME START", message: "please choose odd or even", preferredStyle: .alert)
@@ -95,6 +112,11 @@ class ViewController: UIViewController {
     }
     
     
+    // 구슬의 갯수가 0이 되었는지 판단하는 함수
+    func checkAccountEmpty(balls: Int) -> Bool {
+        return balls == 0
+    }
+    
     // 사용자가 이겼는지 컴퓨터가 이겼는지 판단하는 함수
     func getWinner(count: Int, select: String){
         
@@ -105,14 +127,16 @@ class ViewController: UIViewController {
         if comType == select {
             print("User win")
             result = result + "(User win)"
+            self.resultLbl.text = result
             self.calculateBalls(winner: "user", count: count)
         } else {
             print("Computer win")
             result = result + "(Computer win)"
+            self.resultLbl.text = result
             self.calculateBalls(winner: "com", count: count)
         }
         
-        self.resultLbl.text = result
+
     }
     
     func getRandom() -> Int {
@@ -124,9 +148,15 @@ class ViewController: UIViewController {
         if winner == "com" {
             self.userBallCount = self.userBallCount - count
             self.comBallCount = self.comBallCount + count
+            if self.checkAccountEmpty(balls: self.comBallCount){
+                self.resultLbl.text = "computer win"
+            }
         } else {
             self.userBallCount = self.userBallCount + count
             self.comBallCount = self.comBallCount - count
+            if self.checkAccountEmpty(balls: self.userBallCount){
+                self.resultLbl.text = "user win"
+            }
         }
         
         self.userBallCountLbl.text = "\(self.userBallCount)"
