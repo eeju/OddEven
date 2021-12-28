@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		212F356527732C5600AF0408 /* Instrument Strum.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 212F356227732C5500AF0408 /* Instrument Strum.mp3 */; };
+		212F356627732C5600AF0408 /* Wood Plank Flicks.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 212F356327732C5500AF0408 /* Wood Plank Flicks.mp3 */; };
+		212F356727732C5600AF0408 /* Fart Toot.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 212F356427732C5600AF0408 /* Fart Toot.mp3 */; };
 		21BF023A277044EA00740B72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BF0239277044EA00740B72 /* AppDelegate.swift */; };
 		21BF023C277044EA00740B72 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BF023B277044EA00740B72 /* SceneDelegate.swift */; };
 		21BF023E277044EA00740B72 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BF023D277044EA00740B72 /* ViewController.swift */; };
@@ -16,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		212F356227732C5500AF0408 /* Instrument Strum.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Instrument Strum.mp3"; path = "../../../../Downloads/Instrument Strum.mp3"; sourceTree = "<group>"; };
+		212F356327732C5500AF0408 /* Wood Plank Flicks.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Wood Plank Flicks.mp3"; path = "../../../../Downloads/Wood Plank Flicks.mp3"; sourceTree = "<group>"; };
+		212F356427732C5600AF0408 /* Fart Toot.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Fart Toot.mp3"; path = "../../../../Downloads/Fart Toot.mp3"; sourceTree = "<group>"; };
 		21BF0236277044EA00740B72 /* OddEvenGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OddEvenGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21BF0239277044EA00740B72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21BF023B277044EA00740B72 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,9 +43,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		212F356127732A5300AF0408 /* mp3 */ = {
+			isa = PBXGroup;
+			children = (
+				212F356427732C5600AF0408 /* Fart Toot.mp3 */,
+				212F356227732C5500AF0408 /* Instrument Strum.mp3 */,
+				212F356327732C5500AF0408 /* Wood Plank Flicks.mp3 */,
+			);
+			path = mp3;
+			sourceTree = "<group>";
+		};
 		21BF022D277044EA00740B72 = {
 			isa = PBXGroup;
 			children = (
+				212F356127732A5300AF0408 /* mp3 */,
 				21BF0238277044EA00740B72 /* OddEvenGame */,
 				21BF0237277044EA00740B72 /* Products */,
 			);
@@ -125,7 +142,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				21BF0246277044EB00740B72 /* LaunchScreen.storyboard in Resources */,
+				212F356627732C5600AF0408 /* Wood Plank Flicks.mp3 in Resources */,
 				21BF0243277044EB00740B72 /* Assets.xcassets in Resources */,
+				212F356527732C5600AF0408 /* Instrument Strum.mp3 in Resources */,
+				212F356727732C5600AF0408 /* Fart Toot.mp3 in Resources */,
 				21BF0241277044EA00740B72 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,6 +307,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5454TMPAG8;
 				INFOPLIST_FILE = OddEvenGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -305,6 +326,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5454TMPAG8;
 				INFOPLIST_FILE = OddEvenGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

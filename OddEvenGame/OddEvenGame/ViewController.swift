@@ -13,8 +13,15 @@
  2. user chooses one of odd and even betting the number of marbles he or she has.
  3. screen show the result.
  */
+/*
+ music addition
+ 1. add music file
+ 2. add AVFoundation framework
+ 3. make AVAudioPlayer object and and play music
+ */
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
 
@@ -25,10 +32,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var firstImage: UIImageView!
     
     
-    
+    var player: AVAudioPlayer?
     var comBallCount: Int = 20
     var userBallCount: Int = 20
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -36,15 +44,42 @@ class ViewController: UIViewController {
         computerBallCountLbl.text = String(comBallCount)
         userBallCountLbl.text = String(userBallCount)
         self.imageContainer.isHidden = true
+        
+        self.play(fileName: "Instrument Strum")
     }
 
-
+    // 음악파일이름 입력하면 해당 음악파일을 찾아 실행시키는 함수
+    func play(fileName: String){
+        let filePath = Bundle.main.url(forResource: fileName, withExtension: "mp3")
+        
+        // 예외처리 및 에러처리
+        guard let path = filePath else {
+            return
+        }
+//        self.player = try? AVAudioPlayer(contentsOf: path)
+        do {
+            self.player = try AVAudioPlayer(contentsOf: path)
+            
+            guard let soundPlayer = self.player else {
+                return
+            }
+            
+            soundPlayer.prepareToPlay()
+            soundPlayer.play()
+            
+        } catch let error {
+            print("\(error.localizedDescription)")
+        }
+        
+    }
+    
     @IBAction func gameStartPressed(_ sender: Any) {
 
         print("game start!")
         print(self.getRandom())
         
         self.showAlert()
+        self.play(fileName: "Fart Toot")
         
     }
     
@@ -145,12 +180,14 @@ class ViewController: UIViewController {
             self.comBallCount = self.comBallCount + count
             if self.checkAccountEmpty(balls: self.comBallCount){
                 self.resultLbl.text = "finally computer win"
+                self.play(fileName: "Instrument Strum")
             }
         } else {
             self.userBallCount = self.userBallCount + count
             self.comBallCount = self.comBallCount - count
             if self.checkAccountEmpty(balls: self.userBallCount){
                 self.resultLbl.text = "finally user win"
+                self.play(fileName: "Instrument Strum")
             }
         }
         
@@ -162,8 +199,10 @@ class ViewController: UIViewController {
     // 홀짝 버튼 클릭 후 결과 보여주기 전에 이미지쇼추가
     func imageShow() {
         
+        self.play(fileName: "Wood Plank Flicks")
+        
         self.imageContainer.isHidden = false
-        UIView.animate(withDuration: 3.0) {
+        UIView.animate(withDuration: 2.0) {
             
             self.firstImage.transform = CGAffineTransform(scaleX: 5, y: 5)
             self.firstImage.transform = CGAffineTransform(scaleX: 1, y: 1)

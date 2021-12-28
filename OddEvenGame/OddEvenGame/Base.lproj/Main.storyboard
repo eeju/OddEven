@@ -33,7 +33,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="uls-A9-Mib">
                                 <rect key="frame" x="0.0" y="44" width="414" height="768"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="com" translatesAutoresizingMaskIntoConstraints="NO" id="MR9-hE-dM9">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tiger" translatesAutoresizingMaskIntoConstraints="NO" id="MR9-hE-dM9">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="242.5"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="SDn-Er-8Lt">
@@ -62,7 +62,7 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="uso-e2-CQq">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rabbit" translatesAutoresizingMaskIntoConstraints="NO" id="uso-e2-CQq">
                                         <rect key="frame" x="0.0" y="525.5" width="414" height="242.5"/>
                                     </imageView>
                                 </subviews>
@@ -113,9 +113,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="com" width="259" height="271"/>
-        <image name="fist" width="1280" height="1255"/>
-        <image name="user" width="269" height="292"/>
+        <image name="fist" width="343" height="277"/>
+        <image name="rabbit" width="259" height="263.5"/>
+        <image name="tiger" width="337.5" height="400"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
